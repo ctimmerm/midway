@@ -1,0 +1,23 @@
+.playfield--container {
+}
+
+.playfield--table {
+  background-color: rgba(79, 188, 255, 0.45);
+}
+
+.playfield--cell {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(79, 188, 255, 0.65);
+  color: #fff;
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.playfield--header {
+  text-align: center;
+  color: rgba(0, 0, 0, .54);
+  font-size: 30px;
+}

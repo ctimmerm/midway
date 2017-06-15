@@ -8,6 +8,11 @@ html {
 body {
   font-size: 14px;
   color: rgba(0, 0, 0, .87);
+  padding: 25px;
+}
+
+h1 {
+  font-size: 30px;
 }
 
 *, *:before, *:after {
