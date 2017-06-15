@@ -29,10 +29,22 @@ public class NextTurnResource {
 
     @POST
     public Target nextTurn(NextTurnRequest request) {
+        String[][] enemyGrid = application.getEnemyGrid().getGrid();
+
         if (request != null && request.getReport().getYou() != null) {
             if (request.getReport().getYou().getEvent().equals("HIT")) {
                 wasPreviousHit = true;
+                enemyGrid[previousX][previousY] = GridObject.CELL_HIT;
+            } else if (request.getReport().getYou().getEvent().equals("SUNK")) {
+                wasPreviousHit = false;
+                enemyGrid[previousX][previousY] = GridObject.CELL_SUNK;
+            } else {
+                wasPreviousHit = false;
+                enemyGrid[previousX][previousY] = GridObject.CELL_MISS;
             }
+        } else {
+            wasPreviousHit = false;
+            enemyGrid[previousX][previousY] = GridObject.CELL_MISS;
         }
 
         if (request != null && request.getReport() != null && request.getReport().getEnemy() != null) {
