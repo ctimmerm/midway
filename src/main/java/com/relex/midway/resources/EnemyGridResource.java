@@ -1,5 +1,6 @@
 package com.relex.midway.resources;
 
+import com.relex.midway.BattleshipApplication;
 import com.relex.midway.api.Grid;
 import com.codahale.metrics.annotation.Timed;
 import com.relex.midway.db.GridObject;
@@ -15,19 +16,14 @@ import java.util.Optional;
 @Path("/api/enemy-grid")
 @Produces(MediaType.APPLICATION_JSON)
 public class EnemyGridResource {
-    private final AtomicLong counter;
+    BattleshipApplication application;
 
-    public EnemyGridResource() {
-        this.counter = new AtomicLong();
+    public EnemyGridResource(BattleshipApplication application) {
+        this.application = application;
     }
 
     @GET
-    @Timed
-    public Grid getGrid(@QueryParam("name") Optional<String> name) {
-        final String value = name.orElse("empty");
-
-        GridObject ownGrid = new GridObject(false);
-
-        return new Grid(ownGrid.getGrid());
+    public Grid getGrid() {
+        return new Grid(application.getEnemyGrid().getGrid());
     }
 }
