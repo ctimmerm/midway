@@ -1,5 +1,7 @@
 package com.relex.midway.db;
 
+import com.relex.midway.api.Move;
+
 /**
  * Created by andrebrunnsberg on 15.06.17.
  */
@@ -24,6 +26,24 @@ public class GridObject {
         return grid;
     }
 
+    public void updateGrid(Move move) {
+        int x = move.getTarget().getX();
+        int y = move.getTarget().getY();
+        switch (move.getEvent()){
+            case Move.HIT:
+                grid[x][y] = "x";
+                break;
+            case Move.MISS:
+                grid[x][y] = "o";
+                break;
+            case Move.SUNK:
+                grid[x][y] = "X";
+                break;
+            default:
+                break;
+        }
+    }
+
     private void addBattleShips() {
         // add #1
         grid[1][0] = "1";
@@ -41,7 +61,7 @@ public class GridObject {
         // add #3
         grid[5][4] = "3";
         grid[6][4] = "3";
-        grid[7][4] = "3";
+        grid[7][4] = "x";
 
         // add #4
         grid[3][9] = "4";

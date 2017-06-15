@@ -2,3 +2,5 @@ target/*
 .idea/
 battleship.iml
 dependency-reduced-pom.xml
+node_modules/
+yarn.lock
