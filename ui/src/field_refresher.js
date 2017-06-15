@@ -12,7 +12,7 @@ export default (Component, url) => class extends React.Component {
 
   componentDidMount() {
     this.subscription = Rx.Observable
-      .interval(500)
+      .interval(50)
       .switchMap(() => Rx.Observable.fromPromise(axios.get(url)))
       .subscribe(response => {
         this.setState({

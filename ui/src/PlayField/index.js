@@ -42,7 +42,9 @@ class PlayField extends React.Component {
       <div className="playfield--container">
         <h2 className="playfield--header">{this.props.title}</h2>
         <table className="playfield--table" cellSpacing="5px">
-          {this.props.field.map(this.renderRow)}
+          <tbody>
+            {this.props.field.map(this.renderRow)}
+          </tbody>
         </table>
       </div>
     );
