@@ -1,0 +1,15 @@
+html {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: 14px;
+  color: rgba(0, 0, 0, .87);
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
