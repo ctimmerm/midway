@@ -55,4 +55,15 @@ public class Move {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Move{");
+        sb.append("target=").append(target);
+        sb.append(", event='").append(event).append('\'');
+        sb.append(", ship=").append(ship);
+        sb.append(", message='").append(message).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
