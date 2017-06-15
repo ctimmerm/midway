@@ -29,7 +29,7 @@ public class NextTurnResource {
 
     @POST
     public Target nextTurn(NextTurnRequest request) {
-        if (request != null) {
+        if (request != null && request.getReport().getYou() != null) {
             if (request.getReport().getYou().getEvent().equals("HIT")) {
                 wasPreviousHit = true;
             }
