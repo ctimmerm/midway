@@ -11,6 +11,8 @@ class PlayField extends React.Component {
       case '2': return '🛥';
       case '1': return '️🚢';
 
+      case '?': return '🚀';
+
       case 'x':
       case 'X':
         return '🔥';
