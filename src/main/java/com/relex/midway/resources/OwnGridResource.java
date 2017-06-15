@@ -2,6 +2,7 @@ package com.relex.midway.resources;
 
 import com.relex.midway.api.Grid;
 import com.codahale.metrics.annotation.Timed;
+import com.relex.midway.db.GridObject;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,8 +23,11 @@ public class OwnGridResource {
 
     @GET
     @Timed
-    public Grid sayHello(@QueryParam("name") Optional<String> name) {
+    public Grid getGrid(@QueryParam("name") Optional<String> name) {
         final String value = name.orElse("empty");
-        return new Grid(counter.incrementAndGet(), value);
+
+        GridObject ownGrid = new GridObject(true);
+
+        return new Grid(ownGrid.getGrid());
     }
 }

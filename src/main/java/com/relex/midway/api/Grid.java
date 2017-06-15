@@ -1,30 +1,19 @@
 package com.relex.midway.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.Length;
-
 public class Grid {
-    private long id;
-
-    @Length(max = 3)
-    private String content;
+    private String[][] grid;
 
     public Grid() {
         // Jackson deserialization
     }
 
-    public Grid(long id, String content) {
-        this.id = id;
-        this.content = content;
+    public Grid(String[][] grid) {
+        this.grid = grid;
     }
 
     @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    @JsonProperty
-    public String getContent() {
-        return content;
+    public String[][] getGrid() {
+        return grid;
     }
 }
