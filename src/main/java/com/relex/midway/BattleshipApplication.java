@@ -5,6 +5,7 @@ import com.relex.midway.resources.NextTurnResource;
 import com.relex.midway.resources.EndGameResource;
 import com.relex.midway.resources.EnemyGridResource;
 import com.relex.midway.resources.OwnGridResource;
+import com.relex.midway.resources.StartGameResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -32,6 +33,9 @@ public class BattleshipApplication extends Application<BattleshipConfiguration> 
     public void run(final BattleshipConfiguration configuration,
                     final Environment environment) {
 
+        final StartGameResource startGameResource = new StartGameResource(this);
+        environment.jersey().register(startGameResource);
+
         final NextTurnResource nextResource = new NextTurnResource(this);
         environment.jersey().register(nextResource);
 
@@ -51,5 +55,13 @@ public class BattleshipApplication extends Application<BattleshipConfiguration> 
 
     public GridObject getEnemyGrid() {
         return enemyGrid;
+    }
+
+    public void setOwnGrid(GridObject ownGrid) {
+        this.ownGrid = ownGrid;
+    }
+
+    public void setEnemyGrid(GridObject enemyGrid) {
+        this.enemyGrid = enemyGrid;
     }
 }
