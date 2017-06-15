@@ -53,11 +53,11 @@ public class GridObject {
     }
 
     private void addBattleShips() {
-        grid[1][0] = CELL_SHIP_1;
-        grid[2][0] = CELL_SHIP_1;
-        grid[3][0] = CELL_SHIP_1;
-        grid[4][0] = CELL_SHIP_1;
-        grid[5][0] = CELL_SHIP_1;
+        grid[1][1] = CELL_SHIP_1;
+        grid[2][1] = CELL_SHIP_1;
+        grid[3][1] = CELL_SHIP_1;
+        grid[4][1] = CELL_SHIP_1;
+        grid[5][1] = CELL_SHIP_1;
 
         grid[0][5] = CELL_SHIP_2;
         grid[0][6] = CELL_SHIP_2;
@@ -70,6 +70,7 @@ public class GridObject {
 
         grid[3][9] = CELL_SHIP_4;
         grid[4][9] = CELL_SHIP_4;
+        grid[5][9] = CELL_SHIP_4;
 
         grid[9][1] = CELL_SHIP_5;
         grid[9][2] = CELL_SHIP_5;
