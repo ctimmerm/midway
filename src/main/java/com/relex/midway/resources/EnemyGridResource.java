@@ -12,12 +12,12 @@ import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.Optional;
 
-@Path("/api/own-grid")
+@Path("/api/enemy-grid")
 @Produces(MediaType.APPLICATION_JSON)
-public class OwnGridResource {
+public class EnemyGridResource {
     private final AtomicLong counter;
 
-    public OwnGridResource() {
+    public EnemyGridResource() {
         this.counter = new AtomicLong();
     }
 
@@ -26,7 +26,7 @@ public class OwnGridResource {
     public Grid getGrid(@QueryParam("name") Optional<String> name) {
         final String value = name.orElse("empty");
 
-        GridObject ownGrid = new GridObject(true);
+        GridObject ownGrid = new GridObject(false);
 
         return new Grid(ownGrid.getGrid());
     }

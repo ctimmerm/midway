@@ -1,6 +1,8 @@
 package com.relex.midway;
 
 import com.relex.midway.resources.NextTurnResource;
+import com.relex.midway.resources.EndGameResource;
+import com.relex.midway.resources.EnemyGridResource;
 import com.relex.midway.resources.OwnGridResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -25,9 +27,17 @@ public class battleshipApplication extends Application<battleshipConfiguration> 
     @Override
     public void run(final battleshipConfiguration configuration,
                     final Environment environment) {
-        final OwnGridResource resource = new OwnGridResource();
+
         final NextTurnResource nextResource = new NextTurnResource();
-        environment.jersey().register(resource);
         environment.jersey().register(nextResource);
+
+        final OwnGridResource ownGridResource = new OwnGridResource();
+        environment.jersey().register(ownGridResource);
+
+        final EnemyGridResource enemyGridResource = new EnemyGridResource();
+        environment.jersey().register(enemyGridResource);
+
+        final EndGameResource endGameResource = new EndGameResource();
+        environment.jersey().register(endGameResource);
     }
 }
