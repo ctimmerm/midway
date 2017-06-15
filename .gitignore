@@ -1,3 +1,4 @@
 target/*
 .idea/
 battleship.iml
+dependency-reduced-pom.xml
