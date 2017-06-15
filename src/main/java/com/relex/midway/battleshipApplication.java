@@ -1,5 +1,6 @@
 package com.relex.midway;
 
+import com.relex.midway.resources.OwnGridResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,7 +24,7 @@ public class battleshipApplication extends Application<battleshipConfiguration> 
     @Override
     public void run(final battleshipConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        final OwnGridResource resource = new OwnGridResource();
+        environment.jersey().register(resource);
     }
-
 }
