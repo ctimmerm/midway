@@ -2,10 +2,18 @@ package com.relex.midway.db;
 
 import com.relex.midway.api.Move;
 
-/**
- * Created by andrebrunnsberg on 15.06.17.
- */
 public class GridObject {
+    public static final String CELL_SHIP_1 = "1";
+    public static final String CELL_SHIP_2 = "2";
+    public static final String CELL_SHIP_3 = "3";
+    public static final String CELL_SHIP_4 = "4";
+    public static final String CELL_SHIP_5 = "5";
+    public static final String CELL_UNKNOWN = "?";
+    public static final String CELL_HIT = "x";
+    public static final String CELL_SUNK = "X";
+    public static final String CELL_MISS = "o";
+    public static final String CELL_EMPTY = " ";
+
     final String[][] grid;
 
     public GridObject(boolean addBattleShips) {
@@ -13,7 +21,7 @@ public class GridObject {
 
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                grid[i][j] = " ";
+                grid[i][j] = CELL_EMPTY;
             }
         }
 
@@ -31,13 +39,13 @@ public class GridObject {
         int y = move.getTarget().getY();
         switch (move.getEvent()){
             case Move.HIT:
-                grid[x][y] = "x";
+                grid[x][y] = CELL_HIT;
                 break;
             case Move.MISS:
-                grid[x][y] = "o";
+                grid[x][y] = CELL_MISS;
                 break;
             case Move.SUNK:
-                grid[x][y] = "X";
+                grid[x][y] = CELL_SUNK;
                 break;
             default:
                 break;
@@ -45,30 +53,25 @@ public class GridObject {
     }
 
     private void addBattleShips() {
-        // add #1
-        grid[1][0] = "1";
-        grid[2][0] = "1";
-        grid[3][0] = "1";
-        grid[4][0] = "1";
-        grid[5][0] = "1";
+        grid[1][0] = CELL_SHIP_1;
+        grid[2][0] = CELL_SHIP_1;
+        grid[3][0] = CELL_SHIP_1;
+        grid[4][0] = CELL_SHIP_1;
+        grid[5][0] = CELL_SHIP_1;
 
-        // add #2
-        grid[0][5] = "2";
-        grid[0][6] = "2";
-        grid[0][7] = "2";
-        grid[0][8] = "2";
+        grid[0][5] = CELL_SHIP_2;
+        grid[0][6] = CELL_SHIP_2;
+        grid[0][7] = CELL_SHIP_2;
+        grid[0][8] = CELL_SHIP_2;
 
-        // add #3
-        grid[5][4] = "3";
-        grid[6][4] = "3";
-        grid[7][4] = "x";
+        grid[5][4] = CELL_SHIP_3;
+        grid[6][4] = CELL_SHIP_3;
+        grid[7][4] = CELL_SHIP_3;
 
-        // add #4
-        grid[3][9] = "4";
-        grid[4][9] = "4";
+        grid[3][9] = CELL_SHIP_4;
+        grid[4][9] = CELL_SHIP_4;
 
-        // add #5
-        grid[9][1] = "5";
-        grid[9][2] = "5";
+        grid[9][1] = CELL_SHIP_5;
+        grid[9][2] = CELL_SHIP_5;
     }
 }
